@@ -1,0 +1,89 @@
+app 
+    um modulo do proj 
+    ele quebra o proj em partes
+
+
+nome do projeto o mesmo nome da pasta do projeto
+
+crtl shift p opcoes
+
+Ctrl click cai na inplementaçao da variavel??? instalar plugin do python
+tree arvore
+
+view pode chamar controler(tem algumas diferencas mas a funcao é a mesma) em outra linguagens
+     estrutura logica para entregar templates 
+     é a primeira funcao q é executada em resposta a uma requisicao do clinte 
+                    def mostrar_hello(request):
+            return render (request, 'index.html')
+
+    from contas.views import mostrar_hello
+    from django.contrib import admin
+    from django.urls import path
+    from contas.views import mostrar_hello
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', mostrar_hello),
+    ]
+
+    criei html
+    criei a fç q entrega o html 
+
+
+***********************************************************************************************************8
+MODEL
+    colunas de cada tabela em models.py
+        nome = models.CharField(max_length=255)
+    cpf = models.CharField(max_length=14)
+
+
+    migrations arquivos q criaram tabela
+    
+        (ambiente) C:\Users\Renomear.DESKTOP-BS0U13S\Desktop\MiIyama\d402\proj_d402>python manage.py makemigrations
+        Migrations for 'contas':
+        contas\migrations\0001_initial.py
+            - Create model Pessoa
+
+        (ambiente) C:\Users\Renomear.DESKTOP-BS0U13S\Desktop\MiIyama\d402\proj_d402>python manage.py migrate
+        Operations to perform:
+        Apply all migrations: admin, auth, contas, contenttypes, sessions
+        Running migrations:
+        Applying contenttypes.0001_initial... OK
+        Applying auth.0001_initial... OK
+        Applying admin.0001_initial... OK
+        Applying admin.0002_logentry_remove_auto_add... OK
+        Applying admin.0003_logentry_add_action_flag_choices... OK
+        Applying contenttypes.0002_remove_content_type_name... OK
+        Applying auth.0002_alter_permission_name_max_length... OK
+        Applying auth.0003_alter_user_email_max_length... OK
+        Applying auth.0004_alter_user_username_opts... OK
+        Applying auth.0005_alter_user_last_login_null... OK
+        Applying auth.0006_require_contenttypes_0002... OK
+        Applying auth.0007_alter_validators_add_error_messages... OK
+        Applying auth.0008_alter_user_username_max_length... OK
+        Applying auth.0009_alter_user_last_name_max_length... OK
+        Applying auth.0010_alter_group_name_max_length... OK
+        Applying auth.0011_update_proxy_permissions... OK
+        Applying contas.0001_initial... OK
+        Applying sessions.0001_initial... OK
+
+        (ambiente) C:\Users\Renomear.DESKTOP-BS0U13S\Desktop\MiIyama\d402\proj_d402>
+
+
+No terminal shell painel para acessar \ testar
+    python manage.py shell
+        from contas.model import Pessoa
+        pessoa = Pessoa()
+        pessoa.nome = 'Michel'
+        pessoa.cpf = '123.123.123-12'
+        pessoa.save
+
+pessoa = Pessoa()
+    pessoa.nome = request.POST['nome']
+    pessoa.cpf = request.POST['cpf']
+    pessoa.save()
+
+
+    shift tab vai pra tras na tabulacao
+
+    Pessoa.objects.all() leio tosods  os registros
